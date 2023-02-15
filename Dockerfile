@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY n8n .
 
-RUN echo $(ls -1 /tmp/dir)
+RUN echo $(ls)
 
 RUN npm install
 
@@ -33,6 +33,6 @@ FROM n8nio/n8n
 # ENV N8N_BASIC_AUTH_USER=$USERNAME
 # ENV N8N_BASIC_AUTH_PASSWORD=$PASSWORD
 
-COPY --from=Custome-Nodes-Builder app/dist /home/node/.n8n/custom/
+# COPY --from=Custome-Nodes-Builder app/dist /home/node/.n8n/custom/
 
 CMD ["n8n", "start"]
