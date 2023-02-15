@@ -10,11 +10,9 @@ RUN npm install -g npm@6
 
 RUN npm install -g pnpm
 
-RUN npm install
+RUN pnpm install --frozen-lockfile
 
-# RUN lerna bootstrap --hoist
-
-RUN npm run build
+RUN pnpm build
 
 FROM n8nio/n8n
 
