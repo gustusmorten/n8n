@@ -6,9 +6,9 @@ COPY n8n-render ./
 
 RUN echo $(ls -la)
 
-RUN npm install
+RUN pnpm install
 
-RUN npm run build
+RUN pnpm run build
 
 FROM n8nio/n8n
 
