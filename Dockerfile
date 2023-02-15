@@ -2,7 +2,7 @@ FROM node:16 as Custome-Nodes-Builder
 
 WORKDIR /app
 
-COPY n8n .
+COPY n8n-render ./
 
 RUN echo $(ls -la)
 
