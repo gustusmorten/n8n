@@ -8,6 +8,8 @@ RUN echo $(ls -la)
 
 RUN npm install -g npm@6
 
+RUN npm install -g pnpm
+
 RUN npm install
 
 # RUN lerna bootstrap --hoist
