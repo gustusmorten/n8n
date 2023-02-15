@@ -6,9 +6,13 @@ COPY n8n-render ./
 
 RUN echo $(ls -la)
 
-RUN pnpm install
+RUN npm install -g npm@6
 
-RUN pnpm run build
+RUN npm install
+
+# RUN lerna bootstrap --hoist
+
+RUN npm run build
 
 FROM n8nio/n8n
 
