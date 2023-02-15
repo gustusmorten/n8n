@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY n8n-render ./
 
-RUN echo $(ls -la)
+RUN echo $(ls )
 
 RUN npm install -g npm@6
 
@@ -13,6 +13,8 @@ RUN npm install -g pnpm
 RUN pnpm install --frozen-lockfile
 
 RUN pnpm build
+
+RUN echo $(ls )
 
 FROM n8nio/n8n
 
@@ -35,7 +37,7 @@ ENV N8N_BASIC_AUTH_ACTIVE=false
 ENV N8N_BASIC_AUTH_USER=$USERNAME
 ENV N8N_BASIC_AUTH_PASSWORD=$PASSWORD
 
-COPY --from=Custome-Nodes-Builder app/dist /home/node/.n8n/custom/
+COPY --from=Custome-Nodes-Builder app/packages /home/node/.n8n/custom/
 
 CMD ["n8n", "start"]
 EXPOSE 5678
