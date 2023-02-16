@@ -47,6 +47,8 @@ COPY --from=Custome-Nodes-Builder /home/node /usr/local/lib/node_modules/n8n
 
 ENV NODE_ENV=production
 # ENTRYPOINT ["tini", "--", "/docker-entrypoint.sh"]
-
-CMD ["n8n", "start"]
+COPY n8n-render/docker/images/n8n-custom/docker-entrypoint.sh /
+USER node
+ENV NODE_ENV=production
+ENTRYPOINT ["tini", "--", "/docker-entrypoint.sh"]
 EXPOSE 5678
