@@ -39,5 +39,14 @@ ENV N8N_BASIC_AUTH_PASSWORD=$PASSWORD
 
 COPY --from=Custome-Nodes-Builder app/packages /home/node/.n8n/custom/
 
+COPY --from=Custome-Nodes-Builder /home/node /usr/local/lib/node_modules/n8n
+
+# RUN ln -s /usr/local/lib/node_modules/n8n/packages/cli/bin/n8n /usr/local/bin/n8n
+
+# COPY docker/images/n8n-custom/docker-entrypoint.sh /
+
+ENV NODE_ENV=production
+# ENTRYPOINT ["tini", "--", "/docker-entrypoint.sh"]
+
 CMD ["n8n", "start"]
 EXPOSE 5678
