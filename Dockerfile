@@ -37,6 +37,12 @@ ENV N8N_BASIC_AUTH_ACTIVE=false
 ENV N8N_BASIC_AUTH_USER=$USERNAME
 ENV N8N_BASIC_AUTH_PASSWORD=$PASSWORD
 
+ENV N8N_LOG_LEVEL=debug
+ENV N8N_LOG_OUTPUT=console,file
+ENV N8N_LOG_FILE_LOCATION=/home/node/n8n/logs/n8n.log
+ENV N8N_LOG_FILE_MAXSIZE=20
+ENV N8N_LOG_FILE_MAXCOUNT=60
+
 COPY --from=Custome-Nodes-Builder app/packages /home/node/.n8n/custom/
 
 COPY --from=Custome-Nodes-Builder /home/node /usr/local/lib/node_modules/n8n
