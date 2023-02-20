@@ -65,4 +65,4 @@ COPY n8n-render ./
 
 RUN npm install n8n -g
 RUN npm install pm2@latest -g
-CMD [ "PM2", "start", "n8n" ]
+CMD [ "n8n" ]
